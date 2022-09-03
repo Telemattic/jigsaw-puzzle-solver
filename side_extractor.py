@@ -526,7 +526,7 @@ def get_best_fitting_rect_coords(xy, d_threshold=30, perp_angle_thresh=20, verbo
         if depth in (1, 2):
 
             if verbose >= 2:
-                print '\t' * depth, 'point', idx, '- last angle', last_angle, '- perp angle', perp_angle
+                print('\t' * depth, 'point', idx, '- last angle', last_angle, '- perp angle', perp_angle)
 
             diff0 = np.abs(angles[idx] - perp_angle) <= perp_angle_thresh
             diff180_0 = np.abs(angles[idx] - (perp_angle + 180)) <= perp_angle_thresh
@@ -536,7 +536,7 @@ def get_best_fitting_rect_coords(xy, d_threshold=30, perp_angle_thresh=20, verbo
             diff_to_explore = np.nonzero(np.logical_and(all_diffs, distances[idx] > 0))[0]
 
             if verbose >= 2:
-                print '\t' * depth, 'diff0:', np.nonzero(diff0)[0], 'diff180:', np.nonzero(diff180)[0], 'diff_to_explore:', diff_to_explore
+                print('\t' * depth, 'diff0:', np.nonzero(diff0)[0], 'diff180:', np.nonzero(diff180)[0], 'diff_to_explore:', diff_to_explore)
 
             for dte_idx in diff_to_explore:
                 if dte_idx not in prev_points: # unlickly to happen but just to be certain
@@ -558,7 +558,7 @@ def get_best_fitting_rect_coords(xy, d_threshold=30, perp_angle_thresh=20, verbo
                 rect_points.append(idx)
                 
                 if verbose == 2:
-                    print 'We have a rectangle:', rect_points
+                    print('We have a rectangle:', rect_points)
 
                 already_present = False
                 for possible_rectangle in possible_rectangles:
@@ -570,15 +570,15 @@ def get_best_fitting_rect_coords(xy, d_threshold=30, perp_angle_thresh=20, verbo
                     possible_rectangles.append(rect_points)
 
     if verbose >= 2:
-        print 'Coords'
-        print xy
-        print
-        print 'Distances'
-        print distances
-        print
-        print 'Angles'
-        print angles
-        print
+        print('Coords')
+        print(xy)
+        print()
+        print('Distances')
+        print(distances)
+        print()
+        print('Angles')
+        print(angles)
+        print()
     
     for i in range(N):
         search_for_possible_rectangle(i)                 
