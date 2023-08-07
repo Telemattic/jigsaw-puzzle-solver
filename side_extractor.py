@@ -654,6 +654,8 @@ def process_piece(image, **kwargs):
     
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
+        out_dict['source'] = gray.copy()
+
         before_segmentation_func = params['before_segmentation_func']
         after_segmentation_func = params['after_segmentation_func']
         bin_threshold = params['bin_threshold']
